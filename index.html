@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Mercearia Oficial - Produtos de qualidade com atendimento institucional.">
+    <title>Mercearia Gov | Portal Oficial</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="brand">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            MerceariaGov
+        </div>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+        <h1>Abastecimento Oficial</h1>
+        <p>Produtos selecionados com garantia de procedência e nota fiscal.</p>
+        <a href="#produtos" class="btn btn-success hero-btn">Ver Catálogo</a>
+    </div>
+</section>
+
+<section id="produtos" class="container">
+    <h2>Catálogo Disponível</h2>
+
+    <div class="categories" id="category-filters">
+        <button class="cat-chip active" onclick="filterProducts('todos', event)">Todos</button>
+        <button class="cat-chip" onclick="filterProducts('alimentos', event)">Alimentos</button>
+        <button class="cat-chip" onclick="filterProducts('limpeza', event)">Limpeza</button>
+        <button class="cat-chip" onclick="filterProducts('bebidas', event)">Bebidas</button>
+    </div>
+
+    <div class="product-grid" id="product-list"></div>
+</section>
+
+<section id="visita" class="visit-section">
+    <div class="container">
+        <h2>Solicitar Visita Técnica</h2>
+        <p>Necessita de avaliação para grandes volumes ou consultoria de estoque? Nossa equipe vai até você.</p>
+
+        <form id="visit-form">
+            <div class="form-group">
+                <label for="nome">Responsável</label>
+                <input type="text" id="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">WhatsApp / Contato</label>
+                <input type="tel" id="telefone" required>
+            </div>
+
+            <div class="location-box">
+                <p>Precisamos da sua localização para planejar a rota da equipe técnica.</p>
+                <button type="button" class="btn btn-outline" id="btn-geo" onclick="getGeolocation()">
+                    Compartilhar Localização
+                </button>
+                <span id="geo-msg" class="geo-status">Aguardando ação...</span>
+            </div>
+
+            <input type="hidden" id="lat">
+            <input type="hidden" id="lng">
+
+            <div id="manual-address">
+                <div class="form-group">
+                    <label for="endereco">Endereço Manual</label>
+                    <textarea id="endereco" rows="3"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Mercearia Gov. Todos os direitos reservados.</p>
+        <p class="footer-small">Desenvolvido com padrões institucionais.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

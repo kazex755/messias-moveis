@@ -1,0 +1,226 @@
+/* ==============================
+   RESET BÁSICO (SEM *)
+================================ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+div, section, header, footer, p, h1, h2, h3, button, input, textarea, img, a {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F9FA;
+    color: #141618;
+    line-height: 1.5;
+    padding-bottom: 80px;
+}
+
+/* ==============================
+   TIPOGRAFIA
+================================ */
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #1351B4;
+    border-left: 4px solid #268744;
+    padding-left: 8px;
+}
+
+p {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 12px;
+}
+
+/* ==============================
+   CONTAINER
+================================ */
+
+.container {
+    width: 92%;
+    margin: 0 auto;
+}
+
+/* ==============================
+   BOTÕES
+================================ */
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #1351B4;
+    color: #FFFFFF;
+}
+
+.btn-success {
+    background-color: #268744;
+    color: #FFFFFF;
+}
+
+/* ==============================
+   HEADER
+================================ */
+
+header {
+    background-color: #FFFFFF;
+    height: 56px;
+    border-bottom: 1px solid #DDD;
+    padding: 0 16px;
+}
+
+.brand {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1351B4;
+    line-height: 56px;
+}
+
+/* ==============================
+   HERO
+================================ */
+
+.hero {
+    background-color: #1351B4;
+    color: #FFFFFF;
+    padding: 30px 16px;
+    text-align: center;
+}
+
+.hero p {
+    color: #EAEAEA;
+}
+
+/* ==============================
+   CATEGORIAS
+================================ */
+
+.categories {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.cat-chip {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #FFFFFF;
+    border: 1px solid #DADCE0;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 6px;
+}
+
+.cat-chip.active {
+    background: #1351B4;
+    color: #FFFFFF;
+}
+
+/* ==============================
+   PRODUTOS
+================================ */
+
+.product-grid {
+    display: block;
+}
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid #DADCE0;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.card-img {
+    width: 100%;
+    height: 140px;
+    background-color: #EEEEEE;
+}
+
+.card-body {
+    padding: 12px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #268744;
+    margin-top: 8px;
+}
+
+/* ==============================
+   VISITA TÉCNICA
+================================ */
+
+.visit-section {
+    background: #FFFFFF;
+    padding: 20px 16px;
+    border-top: 1px solid #DDD;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DADCE0;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* ==============================
+   GEOLOCALIZAÇÃO
+================================ */
+
+.location-box {
+    background: #F0F7FF;
+    border: 1px dashed #1351B4;
+    padding: 14px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+    background: #333333;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+}
