@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Marcenaria Premium | Móveis Sob Medida</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&amp;family=Open+Sans:wght@400;600&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body data-theme="dark">
+        <header>
+            <div class="container nav-content">
+                <div class="logo">
+                    <i class="ph ph-tree-palm"></i>
+                    MARCENARIA<span style="color: var(--primary)">LOCAL</span>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="ph ph-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="container">
+                <h1>
+                    Móveis de Madeira <br />
+                    <span style="color: var(--primary)">Sob Medida</span>
+                </h1>
+                <p>
+                    Qualidade, durabilidade e design exclusivo para o seu lar.
+                </p>
+                <button
+                    class="btn-cta"
+                    onclick="
+                        document
+                            .getElementById('products-section')
+                            .scrollIntoView({ behavior: 'smooth' })
+                    "
+                >
+                    Ver Catálogo <i class="ph ph-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <i class="ph ph-shield-check"></i>
+                    <h4>Garantia Total</h4>
+                    <p>Materiais de alto padrão</p>
+                </div>
+                <div class="badge-item">
+                    <i class="ph ph-map-pin"></i>
+                    <h4>Produção Local</h4>
+                    <p>Valorize a sua região</p>
+                </div>
+                <div class="badge-item">
+                    <i class="ph ph-hand-heart"></i>
+                    <h4>Sob Medida</h4>
+                    <p>Feito para seu espaço</p>
+                </div>
+                <div class="badge-item">
+                    <i class="ph ph-whatsapp-logo"></i>
+                    <h4>Atendimento</h4>
+                    <p>Suporte rápido e humano</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="flash-section" class="flash-offers container">
+            <div class="section-title">
+                ⚡ Oferta <span style="color: red">Relâmpago</span>
+            </div>
+            <div id="flash-container">
+                <div class="loading-spinner">Carregando ofertas...</div>
+            </div>
+        </section>
+
+        <section id="products-section" class="container mt-4">
+            <div class="section-title">Nossos <span>Móveis</span></div>
+
+            <div
+                style="
+                    display: flex;
+                    gap: 10px;
+                    overflow-x: auto;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                "
+            >
+                <button
+                    class="btn-buy"
+                    style="width: auto; padding: 5px 15px"
+                    onclick="renderProducts('all')"
+                >
+                    Todos
+                </button>
+                <button
+                    class="btn-buy"
+                    style="width: auto; padding: 5px 15px"
+                    onclick="renderProducts('Mesa')"
+                >
+                    Mesas
+                </button>
+                <button
+                    class="btn-buy"
+                    style="width: auto; padding: 5px 15px"
+                    onclick="renderProducts('Armário')"
+                >
+                    Armários
+                </button>
+            </div>
+
+            <div id="products-grid" class="products-grid">
+                <div class="loading-spinner">
+                    Carregando produtos da planilha...
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="container mt-4"
+            style="
+                background: var(--bg-card);
+                padding: 30px;
+                border-radius: var(--radius);
+                border: 1px solid var(--border);
+            "
+        >
+            <h3 style="margin-bottom: 1rem">🛠️ Como Funciona?</h3>
+            <ul
+                style="
+                    padding-left: 20px;
+                    line-height: 1.8;
+                    color: var(--text-sec);
+                "
+            >
+                <li>1. Escolha o móvel e personalize a cor.</li>
+                <li>2. Informe as medidas (ou solicite visita).</li>
+                <li>3. Envie o pedido direto no WhatsApp.</li>
+            </ul>
+        </section>
+
+        <!-- ========================= -->
+        <!-- 🎥 PROJETOS ENTREGUES -->
+        <!-- ========================= -->
+        <section class="container mt-4 video-proof">
+            <div class="section-title">Projetos <span>Entregues</span></div>
+            <p class="video-subtitle">
+                Veja móveis reais já finalizados e entregues aos nossos
+                clientes.
+            </p>
+
+            <div id="videos-grid" class="video-grid">
+                <div class="loading-spinner">Carregando vídeos...</div>
+            </div>
+        </section>
+
+        <!-- =========================
+     ⭐ AVALIAÇÃO DO CLIENTE
+========================= -->
+        <section class="container feedback-section" id="feedback">
+            <div class="section-title">
+                ⭐ Avalie <span>nosso atendimento</span>
+            </div>
+            <p class="feedback-subtitle">
+                Sua opinião é muito importante pra gente
+            </p>
+
+            <form id="feedbackForm" class="feedback-form">
+                <input
+                    type="text"
+                    id="clientName"
+                    placeholder="Seu nome"
+                    required
+                />
+                <textarea
+                    id="clientFeedback"
+                    placeholder="Escreva sua avaliação..."
+                    required
+                ></textarea>
+                <button type="submit" class="btn-primary">
+                    Enviar avaliação
+                </button>
+            </form>
+
+            <div class="feedback-grid" id="feedbackList"></div>
+        </section>
+
+        <!-- =========================
+     📍 ONDE ESTAMOS
+========================= -->
+        <section class="container location-section" id="localizacao">
+            <div class="section-title">📍 Onde <span>Estamos</span></div>
+
+            <p class="location-subtitle">
+                Loja física — venha nos visitar ou chame no WhatsApp
+            </p>
+
+            <div class="location-box">
+                <div class="location-info">
+                    <h3>Messias Móveis</h3>
+
+                    <p>
+                        <i class="ph ph-map-pin"></i>
+                        SE-200 • Próximo ao Bar Dona Ana
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&amp;query=Messias+Móveis+SE-200"
+                        target="_blank"
+                        class="btn-map"
+                    >
+                        📍 Abrir no Google Maps
+                    </a>
+                </div>
+
+                <iframe
+                    src="https://www.google.com/maps?q=Messias+Móveis+SE-200&amp;output=embed"
+                    loading="lazy"
+                    width="100%"
+                    height="100%"
+                    style="border-radius: 12px; border: 0"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                >
+                </iframe>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h3>Marcenaria Local</h3>
+                <p>
+                    <i class="ph ph-map-pin"></i> Próximo ao supermercado
+                    popular
+                </p>
+                <p style="opacity: 0.5; font-size: 0.7rem; margin-top: 20px">
+                    © 2024 Todos os direitos reservados.
+                    <strong>💡 As imagens são referências de design. Fabricamos
+                        projetos personalizados de acordo com o seu
+                        espaço.</strong>
+                </p>
+            </div>
+        </footer>
+
+        <a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            class="whatsapp-float-left"
+            aria-label="Falar no WhatsApp"
+        >
+            <i class="ph ph-chat-circle-text"></i>
+        </a>
+        <span class="whatsapp-status" id="whatsappStatus"></span>
+
+        <script src="script.js"></script>
+    </body>
+</html>
