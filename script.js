@@ -1611,6 +1611,73 @@ const colorObserver = new MutationObserver(() => {
 });
 colorObserver.observe(document.body, { childList: true, subtree: true });
 
+/**
+ * 🚀 INTEGRAÇÃO MESSIAS MÓVEIS -> ERP INTERNO
+ * Este script envia os dados do site público para o sistema da marcenaria.
+ * 100% Encapsulado. Não polui o global do seu site.
+ */
+(function() {
+    'use strict';
+
+    const PublicOrderIntegration = {
+        
+        // Formata os dados do site para o padrão industrial do ERP
+        formatDataForERP: function(customerName, itemsList) {
+            return {
+                source: 'website',
+                customer: customerName,
+                orderDate: new Date().toISOString(),
+                status: 'pendente_aprovacao',
+                items: itemsList.map(item => ({
+                    name: item.productName,
+                    qty: item.quantity,
+                    // O ERP assumirá a engenharia padrão (medidas/peças) via backend depois
+                }))
+            };
+        },
+
+        // Função que você vai chamar quando o cliente clicar em "Finalizar Pedido"
+        sendToProduction: async function(customerName, itemsList) {
+            const formattedData = this.formatDataForERP(customerName, itemsList);
+
+            try {
+                console.log('🏗️ [Integração] Preparando envio para o ERP...', formattedData);
+
+                // =====================================================================
+                // ⚠️ ESTRUTURA PARA FUTURO BACKEND (API REST)
+                // Quando você tiver um servidor real, basta descomentar este bloco:
+                /*
+                const response = await fetch('https://api.messiasmoveis.com.br/v1/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formattedData)
+                });
+                
+                if (!response.ok) throw new Error('Falha no servidor industrial.');
+                */
+                // =====================================================================
+
+                // SIMULAÇÃO FRONTEND (Via LocalStorage compartilhado para testes locais)
+                // Isso permite que você teste os dois sistemas na mesma máquina abrindo abas locais
+                localStorage.setItem('messias_external_order_queue', JSON.stringify(formattedData));
+
+                console.log('✅ [Integração] Pedido despachado para a produção com sucesso.');
+                return true;
+
+            } catch (error) {
+                console.error('❌ [Integração] Erro crítico ao enviar para o ERP:', error);
+                return false;
+            }
+        }
+    };
+
+    // Expõe APENAS a função de disparo de forma controlada para o site usar
+    window.MessiasERP = {
+        dispatchOrder: (customer, items) => PublicOrderIntegration.sendToProduction(customer, items)
+    };
+
+})();
+
 // ========================================================================
 // 🔐 SHIELDBANK ENGINE - SEGURANÇA DE ALTA INTEGRIDADE
 // ========================================================================
